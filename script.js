@@ -202,21 +202,23 @@ function setForm() {
 }
 
 function setupSwipers() {
-    const heroSwiper = new Swiper(".heroSwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      initialSlide:2,
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 200,
-        modifier: 1,
-        slideShadows: true,
-      },
-      loop: true,
-    });
+    if(window.innerWidth < 768) {
+        const heroSwiper = new Swiper(".heroSwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        initialSlide:2,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+        },
+        loop: true,
+        });
+    }
 
 
     const swiper = new Swiper('.mySwiper', {
