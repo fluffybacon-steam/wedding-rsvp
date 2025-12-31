@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",function(){
     setForm();
     setupSwipers();
     setUpAnimations();
-    document.body.style.opacity = 1;
+    document.querySelector(".hero").style.opacity = 1;
 })
 
 function setUpAnimations() {
