@@ -38,6 +38,7 @@
         --spacing-xl: 2rem;
     }
     @media (max-width: 480px) {
+        font-size:14px;
         --spacing-xxl: 2.5rem;
         --spacing-xl: 1.5rem;
         --spacing-lg: 1rem;
@@ -230,6 +231,9 @@ a.highlight{
     @media screen and (max-width:768px) {
         font-size:6rem;
     }
+    @media screen and (max-width:500px) {
+        font-size:5rem;
+    }
     .word{
         display: inline-block;
         font-family: var(--font-script);
@@ -370,6 +374,11 @@ a.highlight{
     @media (max-width: 768px) {
         grid-template-columns:auto;
         grid-template-rows:auto;
+        margin-bottom:3em;
+    }
+    @media (max-width: 500px) {
+        width: 100vw;
+        translate: calc(-3 * var(--spacing-lg));
     }
     .hero-image-item {
         overflow: hidden;
@@ -688,6 +697,9 @@ a.highlight{
     margin: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md);
     list-style-position: inside;
     list-style-type: none;
+    @media screen and (max-width:500px) {
+        margin:0;
+    }
 }
 
 .accommodations-text li {
