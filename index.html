@@ -34,6 +34,15 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
     
     <script src="script.js" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP26YKH99Q"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FP26YKH99Q');
+    </script>
 </head>
 <body>
     <script>document.body.style.opacity = 0;</script>
@@ -186,6 +195,8 @@
         </div>
     </section>
 
+    <hr style="background:var(--color-primary-brown);max-width:800px;width:75%;margin:auto;" />
+
     <!-- Gift Registry Section -->
     <section class="registry">
         <h2 class="section-title">Gift Registry</h2>
@@ -193,7 +204,12 @@
             <div class="registry-text">
                 <p>No need for boxed gifts – your presence is the best gift we could ask for.</p>
                 <p>We know many folks may be traveling a long ways for us! We truly expect nothing from you all and will be so excited to spend time with you.</p>
-                <p>That said, if gift giving is your love language, you are welcome to check out our <a target="_blank" class='highlight two' href='https://www.amazon.com/wedding/share/abby-and-baily'>gift registry here.</a></p>
+                <p>That said, if gift giving is your love language, we invite you to donate to one of our chosen charities</p>
+                <ul style="list-style-type: none;">
+                    <li style="margin:1em 0"><a target="_blank" href="https://www.wildanimalinitiative.org/donate"><img style="background: var(--color-primary-brown);width:200px;padding:0.5em;" src="images/wildlife.webp" alt="Wild Life Initiative"/></a></li>
+                    <li style="margin:1em 0"><a target="_blank" href="https://give.doctorswithoutborders.org/campaign/675296/donate"><img style="background: white;width:200px;padding:0.5em;" src="images/doctorswithborders.webp" alt="Doctors Without Borders"/></a></li>
+                    <li style="margin:1em 0"><a target="_blank" href="https://www.hi-us.org/en/index?form=donate"><img style="background: rgb(15, 50, 225);width:200px;padding:0;" src="images/humanityinclusion.webp" alt="Humanity Inclusion"/></a></li>
+                </ul>
             </div>
             <div class="registry-image">
                 <img src="images/homans path.webp" alt="couple photos">
