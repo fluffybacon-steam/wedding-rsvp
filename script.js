@@ -17,7 +17,7 @@ function setUpAnimations() {
             start: "top 75%",     // When the top of the box hits 80% of the viewport height
             end: "center 75%",       // When the top of the box hits 30% of the viewport height
             scrub: false,          // Links the animation to the scrollbar (scroll back and forth)
-            markers: true         // Adds visual markers for debugging (remove for production)
+            markers: false         // Adds visual markers for debugging (remove for production)
         },
     })
     hero_tl.fromTo(topFlower, 
