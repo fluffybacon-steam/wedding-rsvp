@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",function(){
     setForm();
     setupSwipers();
     setUpAnimations();
-    document.querySelector(".hero").style.opacity = 1;
+    document.body.style.opacity = 1;
 })
 
 function setUpAnimations() {
@@ -70,45 +70,48 @@ function setUpAnimations() {
 
 
     // suki
-    const suki = document.querySelector(".image-decoration.suki");
-    const sukiMobile = document.querySelector(".image-decoration.center .suki");
-    const footer_tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".contact",      // The element that triggers the animation
-            start: "center-=100 75%",     // When the top of the box hits 80% of the viewport height
-            end: "center+=100 75%",       // When the top of the box hits 30% of the viewport height
-            scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
-            markers: false         // Adds visual markers for debugging (remove for production)
-        },
-    });
-    footer_tl.fromTo(suki, 
-        {
-            y:100
-        },{
-            y:0,
-            duration:0.55
-        }, 0
-    )
+    if(window.innerWidth > 768) {
+        const suki = document.querySelector(".image-decoration.suki");
+        const footer_tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".contact",      // The element that triggers the animation
+                start: "center-=100 75%",     // When the top of the box hits 80% of the viewport height
+                end: "center+=100 75%",       // When the top of the box hits 30% of the viewport height
+                scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
+                markers: false         // Adds visual markers for debugging (remove for production)
+            },
+        });
+        footer_tl.fromTo(suki, 
+            {
+                y:100
+            },{
+                y:0,
+                duration:0.55
+            }, 0
+        )
+    } else {
+        const sukiMobile = document.querySelector(".image-decoration.center .suki");
+        const footer_tl_mobile = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".contact",      // The element that triggers the animation
+                start: "bottom-=50 100%",     // When the top of the box hits 80% of the viewport height
+                end: "bottom 100%",       // When the top of the box hits 30% of the viewport height
+                scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
+                markers: false         // Adds visual markers for debugging (remove for production)
+            },
+        });
+        footer_tl_mobile.fromTo(sukiMobile, 
+            {
+                y:150,
+                x:50
+            },{
+                y:0,
+                x:0,
+                duration:0.55
+            }, 0
+        )
+    }
 
-    const footer_tl_mobile = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".contact",      // The element that triggers the animation
-            start: "bottom-=50 100%",     // When the top of the box hits 80% of the viewport height
-            end: "bottom 100%",       // When the top of the box hits 30% of the viewport height
-            scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
-            markers: true         // Adds visual markers for debugging (remove for production)
-        },
-    });
-    footer_tl_mobile.fromTo(sukiMobile, 
-        {
-            y:150,
-            x:50
-        },{
-            y:0,
-            x:0,
-            duration:0.55
-        }, 0
-    )
 }
 
 function setForm() {
