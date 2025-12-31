@@ -207,7 +207,7 @@ function setupSwipers() {
             modifier: 1,
             slideShadows: true,
         },
-        loop: true,
+        loop: false,
         });
     }
 
