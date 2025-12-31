@@ -13,10 +13,10 @@
 
     <link rel="preload" href="https://fonts.gstatic.com/s/msmadi/v2/m8JWjfpe_Y6pE9Xn.woff2" as="font" type="font/woff2" crossorigin>
     
-    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="style.css?v=1.1" as="style">
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="script.js?v=1.1" as="script">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -33,7 +33,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
     
-    <script src="script.js" defer></script>
+    <script src="script.js?v=1.1" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP26YKH99Q"></script>
     <script>
@@ -366,7 +366,7 @@
             </div>
 
             <div class="form-group" id="guestsNameGroup">
-                <label for="guest)names">Names of Additional Guests</label>
+                <label for="guest-names">Names of Additional Guests</label>
                 <input type="textarea" id="guestsName" name="guests-names" placeholder="Names of Guests" />
             </div>
             
@@ -401,7 +401,8 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="_redirect" value="/thank-you.html" />
+            <input type="hidden" name="_append" value="false" />
+            <input type="hidden" name="_redirect" value="https://wedding.abbyandbaily.com/thank-you" />
             <button type="submit" class="submit-button">Send RSVP</button>
         </form>
     </dialog>
