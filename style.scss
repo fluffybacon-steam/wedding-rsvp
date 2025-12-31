@@ -77,6 +77,9 @@ img {
     margin-bottom: var(--spacing-xl);
     font-weight: 400;
     line-height: 1.2;
+    @media screen and (max-width:600px) {
+        font-size: 3.5rem;
+    }
 }
 
 a.highlight{
@@ -691,9 +694,6 @@ a.highlight{
 
 .accommodations .section-title {
     color: var(--color-text-light);
-    @media screen and (max-width:600px) {
-        font-size: 4rem;
-    }
 }
 
 .accommodations-content {
