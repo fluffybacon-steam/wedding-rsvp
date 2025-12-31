@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abby & Bobby - Wedding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/script.js" ></script>
+    
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="floral-decoration top">
+                <img src="/images/bg-flower-top.webp"/>
+            </div>
+            <div class="floral-decoration top-left">
+                <img src="/images/bg-flower-left.webp"/>
+            </div>
+            <div class="floral-decoration top-right">
+                <img src="/images/bg-flower-right.webp"/>
+            </div>
+             <div class="floral-decoration bottom-left">
+                <img src="/images/bg-flower-bt-left.webp"/>
+            </div>
+            <div class="floral-decoration bottom-right">
+                <img src="/images/bg-flower-bt-right.webp"/>
+            </div>
+            <h2 class="date">July 11, 2026</h2>
+            <h1 class="couple-names">
+                <span class="word">
+                    <span class="letter">A</span><span class="letter">b</span><span class="letter">b</span><span class="letter">y</span>
+                </span>
+                <span class="word">
+                    <span class="letter">&</span>
+                </span>
+                <br/>
+                <span class="word">
+                    <span class="letter">B</span><span class="letter">a</span><span class="letter">i</span><span class="letter">l</span><span class="letter">y</span>
+                </span>
+            </h1>
+            <button class="cta-button" id=openBtn>Wedding RSVP</button>
+            <div class="hero-images">
+                <div class="hero-image-item one">
+                    <img src="/images/thailand.webp" alt="Couple photo 1">
+                </div>
+                <div class="hero-image-item two">
+                    <img src="/images/jcpenny photo.webp" alt="Couple photo 2">
+                </div>
+                <div class="hero-image-item three">
+                    <img src="/images/at the beach.webp" style='object-position:right;' alt="Couple photo 3">
+                </div>
+            </div>
+            <div class="hero-description">
+                <p>We are getting married and you are invited! After 6 years together, we've decided to make us official. Please come help us celebrate our union <strong>July 11<sup style="font-size:0.5em">th</sup>, 2026</strong> in Pennsylvania.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-story">
+        <h2 class="section-title">Our Story</h2>
+        <div class="story-description">
+            <p>The story began on February 28, 2020, at the Horse Inn. The bar was packed and the wait for a table was over an hour, though the time passed quickly in conversation. We were cramped between a hallway of people and a porcelain bathtub filled with cheap beer. Abby would later say she never had a guy ask her so many questions; Baily would say he'd never had the attention of someone as interesting and pretty before.</p>
+            <p>Life threw us a curveball just weeks later when the world shut down. What started as "co-quarantining" quickly turned into building a life together. From buying our first home to expanding our family with pets and friends, we’ve tackled every milestone side-by-side.</p>
+            <p>Today, our "home" looks a little different. For the past three months, we have been living life on the road in our travel trailer, trekking from the northern tips of New England to the shores of Alabama. We’ve learned that wherever life takes us, we will get there together.</p>
+        </div>
+    </section>
+
+    <!-- The Celebration Section -->
+    <section class="celebration">
+        <h2 class="section-title">The Celebration</h2>
+        <div class="celebration-grid">
+            <div class="celebration-item">
+                <h2>Venue</h2>
+                <img src="https://historicpooleforge.org/wp-content/gallery/park-photos/IMG_9387-001.jpg" alt="Wedding venue">
+                <p>We’ve chosen to have a celebration at <a target="_blank" class='highlight one' href='https://historicpooleforge.org/' >Historic Poole Forge</a> in Narvon, PA. We will have the grounds all day July 11<sup style="font-size:0.5em">th</sup>, 2026.</p>
+            </div>
+            <div class="celebration-item">
+                <h2>Dress Code</h2>
+                <img src="https://media.istockphoto.com/id/1323823418/photo/low-angle-view-thermometer-on-blue-sky-with-sun-shining.jpg?s=612x612&w=0&k=20&c=LwLCGF902C-DNwKgCMCR12zFnB4g1INWzlk1JPOidRk=" alt="Ceremony">
+                <p>This is not a formal event. Casual and smart-casual wear is encouraged. Please be mindful of the summer heat and prioritize your comfort.</p>
+            </div>
+            <div class="celebration-item">
+                <h2>Ceremony</h2>
+                <img src="/images/proposal.webp" alt="Reception">
+                <p>Our ceremony will be short and sweet. Following our brief exchange of vows, the remainder of our day will be dedicated to the union of our families.</p>
+            </div>
+        </div>
+        <button class="cta-button" >Let us know you are coming</button>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule">
+        <h2 class="section-title">Schedule of Events</h2>
+        <div class="schedule-list">
+            <div class="schedule-item">
+                <span class="schedule-time">2:00 PM</span>
+                <span class="schedule-event">Arrival & Welcome</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">3:00 PM</span>
+                <span class="schedule-event">Exchanging of Vows</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">4:00 PM</span>
+                <span class="schedule-event">Games & Drinks</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">5:00 PM</span>
+                <span class="schedule-event">Food Trucks Open</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">6:00 PM</span>
+                <span class="schedule-event">Live Music</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">8:00 PM</span>
+                <span class="schedule-event">Campfire</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="section-title">Frequently Asked</h2>
+        <div class="faq-content">
+            <div class="faq-item">
+                <h3>What should I expect?</h3>
+                <p>Our exchanging of vows will be brief and informal, and want the day to be centered around spending time with our friends and family, so late arrivals or folks coming and going are welcome.</p>
+                <p>The park does require we shut down music by 10PM and the event ends by 11PM.</p>
+                <p>We will have lawn games and activities and hope folks will spend time in nature and getting to know one another!</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I bring a plus one? Or my child?</h3>
+                <p>You are welcome to bring a plus one or your child! We just ask that you RSVP with the number of folks attending in your party, so that we can ensure we have enough food.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Where should I park?</h3>
+                <p>There are two parking lots in the park, and we are also allowed to have folks park in the large grassy area at the entrance to the park.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What are the amenities?</h3>
+                <p>There is a historic mansion with an ADA accessible bathroom, air conditioning, and seating for around 50 folks that we will be utilizing. We will also have a large tent for shade with seating, and expect it will be cool with the breeze from the creek.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Registry Section -->
+    <section class="registry">
+        <h2 class="section-title">Gift Registry</h2>
+        <div class="registry-content">
+            <div class="registry-text">
+                <p>No need for boxed gifts – your presence is the best gift we could ask for.</p>
+                <p>We know many folks may be traveling a long ways for us! We truly expect nothing from you all and will be so excited to spend time with you.</p>
+                <p>That said, if gift giving is your love language, you are welcome to check out our <a target="_blank" class='highlight two' href='https://www.amazon.com/wedding/share/abby-and-baily'>gift registry here.</a></p>
+            </div>
+            <div class="registry-image">
+                <img src="/images/homans path.webp" alt="couple photos">
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodations Section -->
+    <section class="accommodations">
+        <h2 class="section-title">Accommodations</h2>
+        <div class="accommodations-content">
+            <div class="accommodations-image">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMLuT7QL-b7aE0SvtclokFhZjbNXWo3xmXidRLs=s680-w680-h510-rw" alt="Country Hearth Bed & Breakfast">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://digital.ihg.com/is/image/ihg/holiday-inn-morgantown-4561355514-4x3?wid=733" alt="Holiday Inn Morgantown">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lirp.cdn-website.com/eddeca2d/dms3rep/multi/opt/BwFAyoRPSx6NI9OsqCdx-1920w.jpg" alt="Country Squire Inn & Suites">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://edenresort.com/assets/images/_AUTOx809_fit_center_75_none/Slideshow-Hotel-Entrance-Side-View.jpg" alt="The Eden">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://www.choicehotels.com/hoteldam/pa/pa186/images/1280/PA186EXT001-2_1.jpg?webp=true" alt="Comfort Inn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accommodations-text">
+                <ul>
+                    <li data-slide="2"><a target="_blank" class='highlight fifth' href='https://www.countrysquiremotorinn.com/'>Country Squire Inn & Suites</a><span style="padding-left:0.5em;">$$</span> <br/> A smaller motel, about 10 minutes from the venue.</li>
+                    <li data-slide="1"><a target="_blank" class='highlight fourth' href='https://www.ihg.com/holidayinn/hotels/us/en/morgantown/mgnpa/hoteldetail'>Holiday Inn Morgantown</a><span style="padding-left:0.5em;"> $$</span><br/> A standard hotel, 10 minutes down the road from the venue. </li>
+                    <li data-slide="0"><a target="_blank" class='highlight three' src="https://countryhearthbedandbreakfast.com" >Country Hearth - Bed & Breakfast</a><span style="padding-left:0.5em;"> $$$</span><br/> A historical B&B, 12 minutes from the venue</li>
+                    <li data-slide="4"><a target="_blank" class='highlight fifth' href='https://www.choicehotels.com/pennsylvania/new-holland/comfort-inn-hotels/pa186'>Comfort Inn New Holland</a><span style="padding-left:0.5em;" > $</span><br/>  A standard hotel, 15 minutes from the venue</li>
+                    <li data-slide="3"><a target="_blank" class='highlight sixth' href='https://edenresort.com/'>The Eden</a><span style="padding-left:1em;">$$$</span> <br/> A nice hotel, 30 minutes from the venue.</li>
+                </ul>
+            </div>
+        </div>
+        <h2 style='margin-top:1em' class="section-title">Transportation</h2>
+        <div class="accommodations-content">
+            <div class="accommodations-image">
+                <div class="swiper travelSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXmV0wpIxNiI92BIgAH19S2nC9Y65LZgxEisccWMd5-s2Y99yz3igifY9Q29teKiqToBEymznEOgqixPG8UcRNwcX6mzx_CMUSrlpfCdgH0NtEbpuiKy_fX_EdT1DVkvNYWhho8A=s680-w680-h510-rw" alt="Harrisburg Airport">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://s28477.pcdn.co/wp-content/uploads/2018/06/PHL_1-984x554.jpg" alt="Philly Airport">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwcwDfsWwTGAlnxTIejXXSRPH2mOr0uwkPwpp13FU3nRmoiP-Lgn4JHm6IanIkNyTStm0otDWEGLGp38b_rc73fSduNMO8flVtCPbohay4MD-PQ42cOrWKQ_XtT3rmfNRu7FZGjBg=s680-w680-h510-rw" alt="Amtrak">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accommodations-text travel">
+                <p>Our nearest airports are <a target="_blank" data-slide="0" class='highlight seventh' href='https://www.flyhia.com/'>Harrisburg International</a> and <a target="_blank" data-slide="1" class='highlight eight' href='https://www.phl.org/'>Philadelphia International</a>. Both are about 1 hour away from the venue. While Philadelphia has more flights, we would personally recommend Harrisburg for ease of travel.</p>
+                <p>Additionally, we have an <a target="_blank" class='highlight ninth' data-slide="2" href='https://www.amtrak.com/stations/lnc'>Amtrak station</a> nestled in the heart of Lancaster for those who prefer public transportation.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-content">
+            <p>For any questions or concerns, please reach out to:</p>
+            <div class="bride-groom-wrapper">
+                <div class="bride">
+                    <h3>The Bride</h3>
+                    <span>Abby Naeve</span>
+                    <a target="_blank" href="+tel:5153684773">515-368-4773</a>
+                    <a target="_blank" href="mailto:abbynaeve@yahoo.com">abbynaeve@yahoo.com</a>
+                </div>
+                <div class='divider'></div>
+                <div class="groom">
+                    <h3>The Groom</h3>
+                    <span>Baily Hohman</span>
+                    <a target="_blank" href="+tel:7178750386">717-875-0386</a>
+                    <a target="_blank" href="mailto:bailyhohman0114@gmail.com">bailyhohman0114@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="image-decoration left">
+            <img src="/images/the bride.webp" />
+        </div>
+        <div class="image-decoration right">
+            <img src="/images/the groom.webp" />
+        </div>
+        <div class="image-decoration suki">
+            <img src="/images/suki_footer.webp" />
+        </div>
+        <div class="image-decoration center">
+            <img src="/images/footermobile.webp" />
+            <img class='suki' src="/images/footermobile_with_suki.webp" />
+        </div>
+    </footer>
+
+    <dialog id="formModal">
+        <canvas id="modal-confetti" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;"></canvas>
+        <button class="close-button" id="closeBtn">&times;</button>
+        <h2>Wedding RSVP</h2>
+        <p class="subtitle">We can't wait to celebrate with you on July 11th, 2026!</p>
+        <form id='rsvpForm' action="https://submit-form.com/g4iLR1aZp">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            
+            <div class="form-group">
+                <label>Will you be attending?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="attending-yes" name="attending" value="yes" required />
+                        <label for="attending-yes">Joyfully Accept</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="attending-no" name="attending" value="no" />
+                        <label for="attending-no">Regretfully Decline</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">Bringing any additional guests?</label>
+                <input type="number" id="guests" name="guests" placeholder="Including yourself" min="0" max="10" value="0" required />
+            </div>
+
+            <div class="form-group" id="guestsNameGroup">
+                <label for="guest)names">Names of Additional Guests</label>
+                <input type="textarea" id="guestsName" name="guests-names" placeholder="Names of Guests" />
+            </div>
+            
+            <div class="form-group">
+                <label for="dietary">Dietary Restrictions</label>
+                <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, allergies, etc." />
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message (e.g. entertainment & game suggestions are welcomed!)</label>
+                <textarea id="message" name="message" placeholder="Share your excitement or song requests!"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>What should our last name be?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="hohman" name="lastname" value="yes" required />
+                        <label for="hohman">Hohman</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="attending-no" name="lastname" value="no" />
+                        <label for="naeve">Naeve</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="attending-no" name="lastname" value="no" />
+                        <label for="naeve">Hoheve</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="attending-no" name="lastname" value="no" />
+                        <label for="naeve">Naeman</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-button">Send RSVP</button>
+        </form>
+    </dialog>
+</body>
+</html>
