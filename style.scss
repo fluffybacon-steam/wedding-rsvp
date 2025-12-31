@@ -691,6 +691,9 @@ a.highlight{
 
 .accommodations .section-title {
     color: var(--color-text-light);
+    @media screen and (max-width:600px) {
+        font-size: 4rem;
+    }
 }
 
 .accommodations-content {
