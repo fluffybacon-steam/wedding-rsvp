@@ -91,7 +91,7 @@ a.highlight{
         content:"";
         position: absolute;
         display:block;
-        mask-image:url('/highlight.svg');
+        mask-image:url('highlight.svg');
         box-decoration-break: clone;
         mask-size: 100%;
         mask-position: center center;
@@ -122,7 +122,7 @@ a.highlight{
         &:after{
             background-color: var(--color-primary-gold);
             opacity: 0.5;
-            mask-image:url(/highlight2.svg);
+            mask-image:url(highlight2.svg);
             inset:-6.5% 0 0 -1.6%;
         }
         &:hover{
@@ -137,7 +137,7 @@ a.highlight{
         // width:106%;
         padding:0 0.3em 0 0.8em;
         &:after{
-            mask-image:url(/highlight2.svg);
+            mask-image:url(highlight2.svg);
             width:101%;
         }
     }
@@ -146,7 +146,7 @@ a.highlight{
         padding:0 0.3em 0 0.8em;
         &:after{
 
-            mask-image:url(/highlight2.svg);
+            mask-image:url(highlight2.svg);
         }
     }
      &.fifth{
@@ -155,7 +155,7 @@ a.highlight{
         margin-right:0.2em;
         &:after{
             width:105%;
-            mask-image:url(/highlight.svg);
+            mask-image:url(highlight.svg);
         }
     }
      &.sixth{
@@ -163,7 +163,7 @@ a.highlight{
         padding:0.1em 0.3em 0.1em 0.8em;
         &:after{
             width:110%;
-            mask-image:url(/highlight3.svg);
+            mask-image:url(highlight3.svg);
         }
     }
     &.seventh{
@@ -172,7 +172,7 @@ a.highlight{
         margin-right: 0.4em;
         &:after{
             width:105%;
-            mask-image:url(/highlight2.svg);
+            mask-image:url(highlight2.svg);
             inset:-6.5% 0 0 -3%;
         }
     }
@@ -182,7 +182,7 @@ a.highlight{
         &:after{
             width:108%;
             inset:-6.5% 0 0 -4%;
-            mask-image:url(/highlight.svg);
+            mask-image:url(highlight.svg);
         }
     }
     &.ninth{
@@ -190,7 +190,7 @@ a.highlight{
         padding:0.1em 0.7em 0.1em 0.5em;
         &:after{
             width:100%;
-            mask-image:url(/highlight.svg);
+            mask-image:url(highlight.svg);
         }
     }
 }
@@ -535,7 +535,7 @@ a.highlight{
     &:before{
         content: "";
         display: block;
-        background-image: url(/subject\ to\ change.webp);
+        background-image: url(subject\ to\ change.webp);
         height: auto;
         width: 25%;
         background-size: contain;
