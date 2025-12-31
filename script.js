@@ -143,15 +143,6 @@ function setForm() {
         }
     });
     
-    // Handle form submission
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        console.log('Form submitted:', Object.fromEntries(formData));
-        alert('Form submitted! Check console for data.');
-        form.reset();
-        dialog.close();
-    });
 
     guestsInput.addEventListener('input', () => {
         const guestCount = parseInt(guestsInput.value) || 0;
