@@ -1036,3 +1036,49 @@ input[type="radio"] {
     height: 0;       /* Start collapsed */
     opacity: 0;      /* Start invisible */
 }
+
+.charity-logo-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on mobile */
+    justify-content: center; /* Centers logos */
+    align-items: center;
+    gap: 20px; /* Space between items */
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    list-style-type: none;
+}
+
+.charity-logo-grid li {
+    flex: 0 1 auto;
+}
+
+.charity-logo-grid img {
+    height: 80px; /* Standardized height */
+    width: auto;
+    max-width: 180px; /* Prevents logos from getting too wide */
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 8px; /* Smooths the corners */
+    transition: transform 0.2s ease;
+}
+
+.charity-logo-grid img:hover {
+    transform: scale(1.05); /* Subtle lift effect */
+}
+
+/* Background Color Utility Classes */
+.bg-brown { background-color: #5d4037; } /* Replace with your var(--color-primary-brown) */
+.bg-white { background-color: #ffffff; border: 1px solid #eee; }
+.bg-dark  { background-color: #3e2b2f; }
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .charity-logo-grid {
+        gap: 15px;
+    }
+    .charity-logo-grid img {
+        height: 60px; /* Slightly smaller on phones */
+        max-width: 140px;
+    }
+}
