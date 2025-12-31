@@ -229,10 +229,10 @@ a.highlight{
     position: relative;
     line-height: 0.75;
     @media screen and (max-width:768px) {
-        font-size:6rem;
+        font-size:8.5rem;
     }
-    @media screen and (max-width:500px) {
-        font-size:5rem;
+    @media screen and (max-width:400px) {
+        font-size:6rem;
     }
     .word{
         display: inline-block;
@@ -370,15 +370,18 @@ a.highlight{
     grid-template-rows:75px 450px 75px;
     gap: 0px;
     margin: var(--spacing-xl) 0;
-    
+    height:600px;
     @media (max-width: 768px) {
         grid-template-columns:auto;
         grid-template-rows:auto;
-        margin-bottom:3em;
     }
     @media (max-width: 500px) {
-        width: 100vw;
-        translate: calc(-3 * var(--spacing-lg));
+        display:block;
+        height: unset;
+        margin-bottom: 4rem;
+        .hero-image-item{
+            display:none;
+        }
     }
     .hero-image-item {
         overflow: hidden;
@@ -418,7 +421,21 @@ a.highlight{
             }
         }
     }
-
+    .swiper{
+        display:none;
+        @media (max-width: 500px) {
+            display: block;
+            overflow: visible;
+        }
+        img{
+            height:475px;
+            object-fit: cover;
+            border-radius: 4px;
+            padding:4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            outline:1px solid var(--color-primary-brown);
+        }
+    }
 }
 
 .hero-description {
@@ -449,6 +466,8 @@ a.highlight{
     }
     .story-description{
         font-size:1.25rem;
+        max-width: 900px;
+        margin: auto;
         &::first-letter {
             float: left;
             font-size: 6rem; /* Make the letter large (adjust as needed) */

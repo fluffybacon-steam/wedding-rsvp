@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded",function(){
     setForm();
     setupSwipers();
     setUpAnimations();
+    document.body.style.opacity = 1;
 })
 
 function setUpAnimations() {
@@ -74,9 +75,9 @@ function setUpAnimations() {
     const footer_tl = gsap.timeline({
         scrollTrigger: {
             trigger: ".contact",      // The element that triggers the animation
-            start: "center 75%",     // When the top of the box hits 80% of the viewport height
+            start: "center-=100 75%",     // When the top of the box hits 80% of the viewport height
             end: "center+=100 75%",       // When the top of the box hits 30% of the viewport height
-            scrub: false,          // Links the animation to the scrollbar (scroll back and forth)
+            scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
             markers: false         // Adds visual markers for debugging (remove for production)
         },
     });
@@ -88,11 +89,23 @@ function setUpAnimations() {
             duration:0.55
         }, 0
     )
-    footer_tl.fromTo(sukiMobile, 
+
+    const footer_tl_mobile = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".contact",      // The element that triggers the animation
+            start: "bottom-=50 100%",     // When the top of the box hits 80% of the viewport height
+            end: "bottom 100%",       // When the top of the box hits 30% of the viewport height
+            scrub: true,          // Links the animation to the scrollbar (scroll back and forth)
+            markers: true         // Adds visual markers for debugging (remove for production)
+        },
+    });
+    footer_tl_mobile.fromTo(sukiMobile, 
         {
-            y:150
+            y:150,
+            x:50
         },{
             y:0,
+            x:0,
             duration:0.55
         }, 0
     )
@@ -186,6 +199,23 @@ function setForm() {
 }
 
 function setupSwipers() {
+    const heroSwiper = new Swiper(".heroSwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      initialSlide:2,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true,
+    });
+
+
     const swiper = new Swiper('.mySwiper', {
         effect: 'fade',
         fadeEffect: {
