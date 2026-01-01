@@ -199,7 +199,6 @@ function setupSwipers() {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
-        initialSlide:2,
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
