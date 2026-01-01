@@ -65,6 +65,15 @@ function setUpAnimations() {
             stagger: 0.07
         }, 0.25
     );
+    hero_tl.fromTo(document.querySelector(".hero .cta-button"),
+        {
+            opacity: 0,
+        },
+        {
+            opacity: 1,
+            duration: 0.25,
+            ease:'none'
+        }, 1.5)
     hero_tl.duration(2);
 
 
@@ -128,14 +137,16 @@ function setForm() {
     openBtn.forEach(button =>{
         button.addEventListener('click', () => {
             dialog.showModal();
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         });
     })
     
     // Close dialog
     closeBtn.addEventListener('click', () => {
         dialog.close();
+        document.body.style.overflow = ''; // Restore background scrolling
     });
-    
+
     // Close dialog when clicking outside (on backdrop)
     dialog.addEventListener('click', (e) => {
         if (e.target === dialog) {
