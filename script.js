@@ -283,11 +283,11 @@ function fireCannons() {
 function addToCalendar() {
     const event = {
         title: "Abby & Baily's Wedding",
-        location: "Historical Poole Forge, https://historicpooleforge.org/",
-        description: "Abby & Baily's Wedding at Historical Poole Forge",
+        location: "Historic Poole Forge, 1940 Main St, Narvon, PA 17555",
+        description: "Abby & Baily's Wedding at Historical Poole Forge. Ceremony is 3pm",
         start: new Date("2026-07-11T14:00:00"),
-        end: new Date("2026-07-11T18:00:00"), // Assuming 4-hour event
-        url: "https://historicpooleforge.org/"
+        end: new Date("2026-07-11T22:00:00"), // Assuming 4-hour event
+        url: "https://wedding.abbyandbaily.com"
     };
 
     // Format dates for .ics file (YYYYMMDDTHHmmss)
