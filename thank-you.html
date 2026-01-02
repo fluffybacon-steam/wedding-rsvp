@@ -31,6 +31,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+
+    <script src="script.js?v=1.5" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP26YKH99Q"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FP26YKH99Q');
+    </script>
 </head>
 <body>
     <!-- Hero Section -->
@@ -51,12 +62,12 @@
             <div class="floral-decoration bottom-right">
                 <img src="images/bg-flower-bt-right.webp"/>
             </div>
-            <h1 style="font-size:5rem;margin:1em auto;text-align: center;line-height: 1;">
+            <h1 style="font-size:4rem;margin:1em auto;text-align: center;line-height: 1;">
                 Thank you for <br/>RSVPing!
             </h1>
-            <a class="cta-button" style="text-decoration: none;" href="https://wedding.abbyandbaily.com/">Back to Home</a>
+            <button style='margin:1rem;' class='calendar-button' onclick="addToCalendar()">Add to Calendar</button>
+            <a class="cta-button" style="text-decoration: none;margin:1rem;" href="https://wedding.abbyandbaily.com/">Back to Home</a>
         </div>
     </section>
-
 </body>
 </html>

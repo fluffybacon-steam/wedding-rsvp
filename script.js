@@ -279,3 +279,47 @@ function fireCannons() {
     fire(0.2, { spread: 60 });
     fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
 }
+
+function addToCalendar() {
+    const event = {
+        title: "Abby & Baily's Wedding",
+        location: "Historical Poole Forge, https://historicpooleforge.org/",
+        description: "Abby & Baily's Wedding at Historical Poole Forge",
+        start: new Date("2026-07-11T14:00:00"),
+        end: new Date("2026-07-11T18:00:00"), // Assuming 4-hour event
+        url: "https://historicpooleforge.org/"
+    };
+
+    // Format dates for .ics file (YYYYMMDDTHHmmss)
+    const formatDate = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+
+    // Create .ics file content
+    const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Wedding Calendar//EN',
+        'BEGIN:VEVENT',
+        `DTSTART:${formatDate(event.start)}`,
+        `DTEND:${formatDate(event.end)}`,
+        `SUMMARY:${event.title}`,
+        `DESCRIPTION:${event.description}`,
+        `LOCATION:${event.location}`,
+        `URL:${event.url}`,
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+
+    // Create blob and download
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'abby-baily-wedding.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+}
