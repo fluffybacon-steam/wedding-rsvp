@@ -67,12 +67,14 @@ function setUpAnimations() {
     );
     hero_tl.fromTo(document.querySelector(".hero .cta-button"),
         {
-            opacity: 0,
+            scale: 0,
+            opacity:0.5
         },
         {
-            opacity: 1,
+            scale: 1,
+            opacity:1,
             duration: 0.25,
-            ease:'none'
+            ease:'back.out'
         }, 1.5)
     hero_tl.duration(2);
 
