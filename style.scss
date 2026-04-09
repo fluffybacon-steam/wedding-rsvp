@@ -10,6 +10,8 @@
     }
 }
 
+
+
 :root {
     font-size:16px;
     /* Primary Colors */
@@ -369,6 +371,7 @@ a.highlight{
     text-transform: uppercase;
     border-radius: 2px;
     z-index: 9999;
+    text-decoration: none;
 }
 
 .cta-button:hover {
@@ -573,24 +576,24 @@ a.highlight{
     @media screen and (max-width:768px) {
         padding-top:50px;
     }
-    &:before{
-        content: "";
-        display: block;
-        background-image: url(images/subjecttochange.webp);
-        height: auto;
-        width: 25%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        position: absolute;
-        aspect-ratio: 750/586;
-        right:0px;
-        top:25%;
-        rotate:17.5deg;
-        @media screen and (max-width:768px) {
-            top:-25px;
-            width:33%;
-        }
-    }
+    // &:before{
+    //     content: "";
+    //     display: block;
+    //     background-image: url(images/subjecttochange.webp);
+    //     height: auto;
+    //     width: 25%;
+    //     background-size: contain;
+    //     background-repeat: no-repeat;
+    //     position: absolute;
+    //     aspect-ratio: 750/586;
+    //     right:0px;
+    //     top:25%;
+    //     rotate:17.5deg;
+    //     @media screen and (max-width:768px) {
+    //         top:-25px;
+    //         width:33%;
+    //     }
+    // }
 }
 
 .schedule-item {
@@ -657,7 +660,7 @@ a.highlight{
    REGISTRY SECTION
    =================================== */
 .registry {
-    background-color: var(--color-bg-cream);
+    background-color: var(--color-primary-gold);
     padding: var(--spacing-xxl) var(--spacing-lg);
 }
 
@@ -669,10 +672,12 @@ a.highlight{
     gap: var(--spacing-xl);
     align-items: top;
 }
-
+.registry .section-title {
+    color: var(--color-text-light);
+}
 .registry-text p {
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-medium);
+    color: var(--color-text-light);
     font-size: 1.25rem;
     line-height: 1.6;
 }
@@ -1092,4 +1097,115 @@ input[type="radio"] {
         height: 60px; /* Slightly smaller on phones */
         max-width: 140px;
     }
+}
+
+.rsvp-banner {
+  background: var(--color-primary-brown);
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0.5em 0;
+  animation: showUp 0.5s  ease-out forwards;
+  position:fixed;
+  top:-100%;
+  z-index: 9999;
+}
+
+@keyframes showUp {
+  from {
+    top:-100%;
+  }
+  to {
+    top:0%;
+  }
+}
+
+.rsvp-track {
+  display: inline-block;
+  animation: scroll-banner 60s linear infinite;
+}
+
+.rsvp-track span {
+  margin-right: 3rem;
+  &::before,&::after{
+    content:"🎉";
+    display:inline-block;
+    font-size:1em;
+    margin-inline: 1em;
+  }
+}
+
+@keyframes scroll-banner {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.volunteering {
+    background: var(--color-bg-cream);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    text-align: center;
+}
+
+.volunteering-content {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    color: var(--color-text-medium);
+    line-height: 1.6;
+}
+
+.volunteering .lead {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-primary-brown);
+    margin-bottom: var(--spacing-md);
+}
+
+.volunteer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    margin: var(--spacing-lg) 0;
+    font-size: 1.2rem;
+}
+
+.volunteer-list span {
+    background: rgba(95, 49, 27, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.volunteer-email {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-primary-brown);
+    text-decoration: none;
+    position: relative;
+}
+
+/* subtle underline animation to match your style */
+.volunteer-email::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.volunteer-email:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
