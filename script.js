@@ -134,6 +134,37 @@ function setForm() {
     const guestNamesGroup = document.getElementById('guestsNameGroup');
     const attendingYes = document.getElementById('attending-yes');
     const attendingNo = document.getElementById('attending-no');
+
+    if(form){ return}
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        // Submit to Formspark and your Worker simultaneously
+        await Promise.all([
+
+            // 1. Formspark (for email notifications)
+            fetch("https://submit-form.com/g4iLR1aZp", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(data),
+            }),
+
+            // 2. Your Cloudflare Worker (for Google Sheets)
+            fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+            })
+
+        ]);
+
+        // Redirect to thank you page
+        window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+    });
     
     // Open dialog
     openBtn.forEach(button =>{
