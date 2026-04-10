@@ -355,7 +355,7 @@
         <button class="close-button" id="closeBtn">&times;</button>
         <h2>Wedding RSVP</h2>
         <p class="subtitle">We can't wait to celebrate with you on July 11th, 2026!</p>
-        <form id='rsvpForm' action="https://submit-form.com/g4iLR1aZp">
+        <form id='rsvpForm'>
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Your full name" required />
@@ -425,6 +425,34 @@
             <input type="hidden" name="_redirect" value="wedding.abbyandbaily.com/thank-you" />
             <button type="submit" class="submit-button">Send RSVP</button>
         </form>
+        <script>document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  // Submit to Formspark and your Worker simultaneously
+  await Promise.all([
+
+    // 1. Formspark (for email notifications)
+    fetch("https://submit-form.com/g4iLR1aZp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data),
+    }),
+
+    // 2. Your Cloudflare Worker (for Google Sheets)
+    fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+
+  ]);
+
+  // Redirect to thank you page
+  window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+});</script>
     </dialog>
 </body>
 </html>
