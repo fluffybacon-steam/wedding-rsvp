@@ -30,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
     
-    <script src="script.js?v=1.6" defer></script>
+    <script src="script.js?v=1.7" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP26YKH99Q"></script>
     <script>
@@ -425,34 +425,7 @@
             <input type="hidden" name="_redirect" value="wedding.abbyandbaily.com/thank-you" />
             <button type="submit" class="submit-button">Send RSVP</button>
         </form>
-        <script>document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData.entries());
-
-  // Submit to Formspark and your Worker simultaneously
-  await Promise.all([
-
-    // 1. Formspark (for email notifications)
-    fetch("https://submit-form.com/g4iLR1aZp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(data),
-    }),
-
-    // 2. Your Cloudflare Worker (for Google Sheets)
-    fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-
-  ]);
-
-  // Redirect to thank you page
-  window.location.href = "https://wedding.abbyandbaily.com/thank-you";
-});</script>
+        <script>document.getElementById('rsvpForm')</script>
     </dialog>
 </body>
 </html>
