@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded",function(){
     setForm();
+    setRsvpChecker();
     setupSwipers();
     setUpAnimations();
     document.body.style.opacity = 1;
@@ -156,8 +157,8 @@ function setForm() {
             await Promise.all([
                 fetch("https://submit-form.com/g4iLR1aZp", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                    body: JSON.stringify(data),
+                    headers: { "Accept": "application/json" },
+                    body: formData,  // ← send FormData directly, no Content-Type header needed
                 }),
                 fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
                     method: 'POST',
@@ -366,4 +367,77 @@ function addToCalendar() {
     link.click();
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
+}
+
+function setRsvpChecker() {
+  const btn     = document.getElementById('rsvpCheckerBtn');
+  const modal   = document.getElementById('rsvpCheckerModal');
+  const closeBtn = document.getElementById('rsvpCheckerClose');
+  const submit  = document.getElementById('rsvpCheckerSubmit');
+  const emailInput = document.getElementById('checkerEmail');
+  const resultDiv  = document.getElementById('rsvpCheckerResult');
+  const formDiv    = document.getElementById('rsvpCheckerForm');
+
+  if (!btn) return;
+
+  btn.addEventListener('click', () => modal.showModal());
+
+  closeBtn.addEventListener('click', () => {
+    modal.close();
+    resetChecker();
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) { modal.close(); resetChecker(); }
+  });
+
+  submit.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    submit.disabled = true;
+    submit.textContent = 'Looking up...';
+
+    try {
+      const res = await fetch(
+        `https://rsvp-to-sheets.bailyhohman0114.workers.dev/?email=${encodeURIComponent(email)}`
+      );
+      const data = await res.json();
+
+      formDiv.style.display = 'none';
+      resultDiv.style.display = 'block';
+
+      if (data.status === 'found') {
+        const attending = data.attending === 'yes';
+        resultDiv.innerHTML = `
+          <div class="rsvp-result ${attending ? 'found-yes' : 'found-no'}">
+            <strong>${attending ? '🎉 You\'re on the list!' : 'You declined'}</strong>
+            <p>Name: ${data.name}</p>
+            <p>Attending: ${attending ? 'Yes' : 'No'}</p>
+            ${data.guests > 0 ? `<p>Additional guests: ${data.guests}</p>` : ''}
+          </div>`;
+      } else {
+        resultDiv.innerHTML = `
+          <div class="rsvp-result not-found">
+            <strong>No RSVP found</strong>
+            <p>We couldn't find an RSVP for <em>${email}</em>.</p>
+            <p>Double-check your email or submit an RSVP using the button above.</p>
+          </div>`;
+      }
+
+    } catch(err) {
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<div class="rsvp-result not-found"><p>Something went wrong. Please try again.</p></div>`;
+    } finally {
+      submit.disabled = false;
+      submit.textContent = 'Look Me Up';
+    }
+  });
+
+  function resetChecker() {
+    emailInput.value = '';
+    resultDiv.style.display = 'none';
+    resultDiv.innerHTML = '';
+    formDiv.style.display = 'block';
+  }
 }

@@ -10,10 +10,10 @@
     <meta property="og:image:height" content="945" />
     <meta property="og:description" content="We can't wait to celebrate with you on July 11th, 2026!" />   
 
-    <link rel="preload" href="style.css?v=1.63" as="style">
-    <link rel="stylesheet" href="style.css?v=1.63">
+    <link rel="preload" href="style.css?v=1.65" as="style">
+    <link rel="stylesheet" href="style.css?v=1.65">
 
-    <link rel="preload" href="script.js?v=1.73" as="script">
+    <link rel="preload" href="script.js?v=1.75" as="script">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -30,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
     
-    <script src="script.js?v=1.73" defer></script>
+    <script src="script.js?v=1.75" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP26YKH99Q"></script>
     <script>
@@ -431,5 +431,88 @@
         </form>
         <script>document.getElementById('rsvpForm')</script>
     </dialog>
+    <div id="rsvpChecker">
+  <button id="rsvpCheckerBtn" aria-label="Check your RSVP">
+    Check RSVP
+  </button>
+
+  <dialog id="rsvpCheckerModal">
+    <button class="close-button" id="rsvpCheckerClose">&times;</button>
+    <h2>Check Your RSVP</h2>
+    <p class="subtitle">Enter your email to see your registration status.</p>
+
+    <div id="rsvpCheckerForm">
+      <div class="form-group">
+        <label for="checkerEmail">Email Address</label>
+        <input type="email" id="checkerEmail" placeholder="your@email.com" />
+      </div>
+      <button class="submit-button" id="rsvpCheckerSubmit">Look Me Up</button>
+    </div>
+
+    <div id="rsvpCheckerResult" style="display:none;"></div>
+  </dialog>
+</div>
+<style>
+    #rsvpChecker {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+}
+
+#rsvpCheckerBtn {
+  background: var(--color-primary-gold);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 24px;
+  padding: 12px 22px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+#rsvpCheckerBtn:hover {
+  background: var(--color-primary-gold-dark);
+  transform: translateY(-2px);
+}
+
+#rsvpCheckerModal {
+  max-width: 420px;
+  width: 90%;
+}
+
+.rsvp-result {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 16px;
+
+  &.found-yes {
+    background: #f0faf4;
+    border: 1px solid #a8d5b5;
+    color: #2d6a4f;
+  }
+
+  &.found-no {
+    background: #fdf4f4;
+    border: 1px solid #e8b4b4;
+    color: #7a2222;
+  }
+
+  &.not-found {
+    background: #fdf8f0;
+    border: 1px solid #e8d5a3;
+    color: #7a5c1e;
+  }
+
+  p { margin: 6px 0; font-size: 14px; }
+  strong { font-size: 16px; }
+}
+</style>
 </body>
 </html>
