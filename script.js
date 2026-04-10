@@ -156,12 +156,14 @@ function setForm() {
             body: JSON.stringify(data),
             }),
 
-            // 2. Your Cloudflare Worker (for Google Sheets)
             fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            body: JSON.stringify(data),
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json;charset=utf-8'  // ← Change this
+            },
+            body: JSON.stringify({ your: data })
             })
+
 
         ]);
 
