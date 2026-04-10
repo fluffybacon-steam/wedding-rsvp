@@ -142,33 +142,39 @@ function setForm() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        const spinner = document.getElementById('formSpinner');
+        const submitBtn = form.querySelector('.submit-button');
+
+        // Show spinner
+        spinner.style.display = 'flex';
+        submitBtn.disabled = true;
+
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
-        console.log("Sending data:", JSON.stringify(data)); // ADD THIS 
 
-        // Submit to Formspark and your Worker simultaneously
-        await Promise.all([
+        try {
+            await Promise.all([
+                fetch("https://submit-form.com/g4iLR1aZp", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                    body: JSON.stringify(data),
+                }),
+                fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                    body: JSON.stringify(data),
+                })
+            ]);
 
-            // 1. Formspark (for email notifications)
-            fetch("https://submit-form.com/g4iLR1aZp", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(data),
-            }),
+            window.location.href = "https://wedding.abbyandbaily.com/thank-you";
 
-            fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json;charset=utf-8'  // ← Change this
-            },
-            body: JSON.stringify({ your: data })
-            })
-
-
-        ]);
-
-        // Redirect to thank you page
-        // window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+        } catch(err) {
+            // Hide spinner on error so user can retry
+            spinner.style.display = 'none';
+            submitBtn.disabled = false;
+            alert("Something went wrong — please try again.");
+            console.error(err);
+        }
     });
     
     // Open dialog

@@ -893,6 +893,7 @@ a.highlight{
 
 // Forms
 dialog {
+    position: relative;
     border: none;
     margin:auto;
     border-radius: 12px;
@@ -902,6 +903,19 @@ dialog {
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.spinner-ring {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(184, 152, 95, 0.2);
+    border-top-color: var(--color-primary-gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Backdrop styling */
