@@ -135,7 +135,7 @@ function setForm() {
     const attendingYes = document.getElementById('attending-yes');
     const attendingNo = document.getElementById('attending-no');
 
-    if(form){ return}
+    if(!form){ return}
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
