@@ -12,6 +12,8 @@ function setUpAnimations() {
     const leftFlower = document.querySelector(".floral-decoration.top-left");
     const rightFlower = document.querySelector(".floral-decoration.top-right");
     const couplesNames = document.querySelector(".couple-names");
+
+    if(!couplesNames) return;
     const hero_tl = gsap.timeline({
         scrollTrigger: {
             trigger: ".hero",      // The element that triggers the animation
@@ -142,6 +144,7 @@ function setForm() {
 
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
+        console.log("Sending data:", JSON.stringify(data)); // ADD THIS 
 
         // Submit to Formspark and your Worker simultaneously
         await Promise.all([
@@ -156,14 +159,14 @@ function setForm() {
             // 2. Your Cloudflare Worker (for Google Sheets)
             fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(data),
             })
 
         ]);
 
         // Redirect to thank you page
-        window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+        // window.location.href = "https://wedding.abbyandbaily.com/thank-you";
     });
     
     // Open dialog
