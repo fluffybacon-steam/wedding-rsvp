@@ -145,8 +145,6 @@ function setForm() {
 
         const spinner = document.getElementById('formSpinner');
         const submitBtn = form.querySelector('.submit-button');
-
-        // Show spinner
         spinner.style.display = 'flex';
         submitBtn.disabled = true;
 
@@ -154,29 +152,62 @@ function setForm() {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            await Promise.all([
-                fetch("https://submit-form.com/g4iLR1aZp", {
-                    method: "POST",
-                    headers: { "Accept": "application/json" },
-                    body: formData,  // ← send FormData directly, no Content-Type header needed
-                }),
-                fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json;charset=utf-8' },
-                    body: JSON.stringify(data),
-                })
-            ]);
+            // Only call your worker via fetch — let Formspark handle itself
+            await fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                body: JSON.stringify(data),
+            });
 
-            window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+            // Now submit the form natively — browser navigates to Formspark
+            // which then redirects to your _redirect URL
+            form.submit();
 
         } catch(err) {
-            // Hide spinner on error so user can retry
             spinner.style.display = 'none';
             submitBtn.disabled = false;
             alert("Something went wrong — please try again.");
             console.error(err);
         }
     });
+
+    // form.addEventListener('submit', async function(e) {
+    //     e.preventDefault();
+
+    //     const spinner = document.getElementById('formSpinner');
+    //     const submitBtn = form.querySelector('.submit-button');
+
+    //     // Show spinner
+    //     spinner.style.display = 'flex';
+    //     submitBtn.disabled = true;
+
+    //     const formData = new FormData(this);
+    //     const data = Object.fromEntries(formData.entries());
+
+    //     try {
+    //         await Promise.all([
+    //             // fetch("https://submit-form.com/g4iLR1aZp?" + new URLSearchParams(data).toString(), {
+    //             //     method: "GET",
+    //             //     headers: { "Accept": "application/json" },
+    //             // }),
+    //             submitToFormspark(data),
+    //             fetch("https://rsvp-to-sheets.bailyhohman0114.workers.dev/", {
+    //                 method: 'POST',
+    //                 headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    //                 body: JSON.stringify(data),
+    //             })
+    //         ]);
+
+    //         // window.location.href = "https://wedding.abbyandbaily.com/thank-you";
+
+    //     } catch(err) {
+    //         // Hide spinner on error so user can retry
+    //         spinner.style.display = 'none';
+    //         submitBtn.disabled = false;
+    //         alert("Something went wrong — please try again.");
+    //         console.error(err);
+    //     }
+    // });
     
     // Open dialog
     openBtn.forEach(button =>{
@@ -440,4 +471,39 @@ function setRsvpChecker() {
     resultDiv.innerHTML = '';
     formDiv.style.display = 'block';
   }
+}
+
+// Replace the Formspark fetch with this function
+function submitToFormspark(data) {
+    return new Promise((resolve) => {
+        const iframe = document.createElement('iframe');
+        iframe.name = 'formspark-iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        const tempForm = document.createElement('form');
+        tempForm.action = 'https://submit-form.com/g4iLR1aZp';
+        tempForm.method = 'GET';
+        tempForm.target = 'formspark-iframe';
+
+        // Filter out underscore-prefixed control fields
+        const filtered = Object.fromEntries(
+            Object.entries(data).filter(([key]) => !key.startsWith('_'))
+        );
+
+        Object.entries(filtered).forEach(([key, value]) => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            tempForm.appendChild(input);
+        });
+
+        document.body.appendChild(tempForm);
+
+        iframe.onload = () => resolve();
+        setTimeout(resolve, 3000);
+
+        tempForm.submit();
+    });
 }
